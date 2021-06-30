@@ -1,0 +1,106 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+header {
+  background: rgb(101, 149, 177);
+
+  nav {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      li {
+        display: inline-block;
+        padding: 2em;
+        cursor: pointer;
+        transition: all 0.2s ease-in;
+
+        a {
+          font-size: 1.3em;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: white;
+        }
+
+        &:hover {
+          background: rgb(132, 186, 218);
+        }
+      }
+    }
+  }
+}
+
+main {
+  padding-top: 5em;
+  .button-switch {
+    float: right;
+    padding: 1em;
+    font-size: 1em;
+    background: rgb(68, 130, 167);
+    color: white;
+  }
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+    margin-top: 5em;
+    @media (max-width: 768px) {
+      & {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 2em;
+      background: rgb(172, 196, 209);
+      h3 {
+        text-align: center;
+      }
+
+      &__image {
+        height: 20em;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      p {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+.footer {
+  margin-top: 5em;
+  padding: 2em;
+  background: rgb(101, 149, 177);
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    a {
+      font-size: 2em;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}

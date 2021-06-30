@@ -1,0 +1,28 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center mt-5">Вoйдите в учетную запись</h2>
+      <hr>
+      <form>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Введите еmail">
+        </div>
+        <div class="form-group">
+          <label for="password">Пароль:</label>
+          <input type="password" class="form-control" id="password" placeholder="Введите пароль">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Войти</button>
+        <div class="w-100 text-center mt-1"><a href="#" class="text-secondary">Забыли пароль?</a></div>
+        <div class="w-100 text-center mt-1">Не зарегистрированы?<a href="{% url 'account_signup' %}" class="text-success"> Регистрация</a></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        {% if request.user.is_authenticated %}
+        <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#requestCallBack">
+          Заказать обратный звонок
+        </button>
+        {% else %}
+        <a href="{% url "account_login" %}" class="btn btn-dark btn-lg">
+          Заказать обратный звонок
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="py-5 mt-5 border">
+  <div class="container">
+    <h2 class="text-center">Наши преимущества</h2>
+    <ul class="list-group list-group-horizontal w-100 justify-content-between mt-5">
+      <li class="list-group-item border-0 d-flex align-items-center">
+        <i class="far fa-clock fa-3x mr-3"></i>
+        <div>В удобное время</div>
+      </li>
+      <li class="list-group-item border-0 d-flex align-items-center">
+        <i class="fas fa-user-tie fa-3x mr-3"></i>
+        <div>Работают профессионалы</div>
+      </li>
+      <li class="list-group-item border-0 d-flex align-items-center">
+        <i class="fas fa-atom fa-3x mr-3"></i>
+        <div>Профессиональная химия</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="py-5 mt-5 promo">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-md-6">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/gR4BiOBJfEc" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-center">Наши работы</h2>
+        <p class="mt-5">Сотрудничаем с частными и юридическими лицами, с малым бизнесом и крупными компаниями.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 mt-5 border">
+  <div class="container">
+    <h2 class="text-center">Наши клиенты</h2>
+    <div class="d-flex justify-content-between mt-5">
+      <div class="client">
+        <img
+          src="https://images.pexels.com/photos/4099260/pexels-photo-4099260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="cleaner" class="img-thumbnail">
+      </div>
+      <div class="client">
+        <img
+          src="https://images.pexels.com/photos/4108715/pexels-photo-4108715.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="cleaner" class="img-thumbnail">
+      </div>
+      <div class="client">
+        <img
+          src="https://images.pexels.com/photos/4099467/pexels-photo-4099467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="cleaner" class="img-thumbnail">
+      </div>
+      <div class="client">
+        <img
+          src="https://images.pexels.com/photos/4031819/pexels-photo-4031819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="cleaner" class="img-thumbnail">
+      </div>
+      <div class="client">
+        <img
+          src="https://images.pexels.com/photos/4034705/pexels-photo-4034705.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="cleaner" class="img-thumbnail">
+      </div>
+      <div class="client">
+        <img
+          src="https://images.pexels.com/photos/4098778/pexels-photo-4098778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="cleaner" class="img-thumbnail">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="requestCallBack" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="requestCallBackLabel">Обратная связь</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'home' %}" method="POST">
+          <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Имя:</label>
+            <div class="col-sm-10">
+              <input id="name" name="name" type="text" class="form-control" placeholder="Введите имя..." />
+              <input name="client_id" type="text" class="d-none" value="{{request.user.id}}" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="phone" class="col-sm-2 col-form-label">Телефон:</label>
+            <div class="col-sm-10">
+              <input type="tel" class="form-control" id="phone" name="phone" aria-describedby="phoneHelp"
+                placeholder="Введите номер телефона..." />
+              <small id="phoneHelp" class="form-text text-muted">Мы не передаем ваши данные третьим лицам.</small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="message" class="col-sm-2 col-form-label">Комментарий:</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" id="message" name="comment"
+                placeholder="Напишите комментарий..."></textarea>
+            </div>
+          </div>
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-auto ml-auto">
+              <button type="submit" class="btn btn-success">Отправить</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

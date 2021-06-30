@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=clean_burg
+POSTGRES_USER=kFTubrWsSPaMUlvjXSgBLiqPtJKFNbsQ
+POSTGRES_PASSWORD=6G5Xbjl3fdzkFvGQaod2UakRDSAlEgzK8QbbbI1gROPbdwAq5AfitHZ16EqVtLW7

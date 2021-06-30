@@ -1,0 +1,22 @@
+@media print {
+  @page {
+    margin: 1cm;
+  }
+  header,
+  footer,
+  #button-switch {
+    display: none;
+  }
+  main .services .card {
+    font-size: 16pt;
+    background: #fff;
+    border: 2px solid black;
+  }
+  main::after {
+    content: "Copyright site.com";
+    display: block;
+    margin-top: 20pt;
+    font-size: 20pt;
+    text-align: center;
+  }
+}

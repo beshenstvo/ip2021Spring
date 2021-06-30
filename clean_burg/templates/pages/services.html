@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Услуги{% endblock %}
+{% block content %}
+
+<section class="py-5 mt-5">
+  <div class="container">
+    <button type="button" class="btn btn-danger" onclick="location.href='{% url 'services_disable' %}'">
+      Версия для слабовидящих
+    </button>
+    <h2 class="mb-5 text-center">Услуги</h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Уборка квартир</h5>
+            <img class="card-img"
+              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+              alt="Card image cap">
+            <p class="card-text mt-3">Обученные клинеры. Сертифицированные средства. Гарантия качества. С нами будет
+              чисто. Срочные выезды. Расчет стоимости на сайте. Новым клиентам скидка 10%</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Чистка ковров</h5>
+            <img class="card-img"
+              src="https://images.unsplash.com/photo-1517837817850-607cd9ff1015?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+              alt="Card image cap">
+            <p class="card-text mt-3">Качественная чистка ковров и паласов требует немало времени, усилий и знаний.
+              Доверьте этот трудоемкий процесс профессионалам с опытом и наслаждайтесь результатом.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

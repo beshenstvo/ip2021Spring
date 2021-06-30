@@ -1,0 +1,130 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+header {
+  background: #6595b1;
+}
+
+header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+header nav ul li {
+  display: inline-block;
+  padding: 2em;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+header nav ul li a {
+  font-size: 1.3em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+
+header nav ul li:hover {
+  background: #84bada;
+}
+
+main {
+  padding-top: 5em;
+}
+
+main .button-switch {
+  float: right;
+  padding: 1em;
+  font-size: 1em;
+  background: #4482a7;
+  color: white;
+}
+
+main h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+main .services {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+  margin-top: 5em;
+}
+
+@media (max-width: 768px) {
+  main .services {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+main .services .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2em;
+  background: #acc4d1;
+}
+
+main .services .card h3 {
+  text-align: center;
+}
+
+main .services .card__image {
+  height: 20em;
+}
+
+main .services .card__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main .services .card p {
+  font-size: 1.5em;
+}
+
+.footer {
+  margin-top: 5em;
+  padding: 2em;
+  background: #6595b1;
+}
+
+.footer__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.footer__content a {
+  font-size: 2em;
+  color: white;
+  text-decoration: none;
+}

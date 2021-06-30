@@ -1,0 +1,100 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>{% block title %}Услуги{% endblock title %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Behold My Awesome Project!" />
+  <meta name="author" content="Daniel Roy Greenfeld" />
+  <link href="{% static 'css/services_disable.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" media="print" href="{% static 'css/print.css' %}">
+</head>
+
+<body>
+  <header class="header">
+    <nav>
+      <div class="container">
+        <ul>
+          <li>
+            <a id="home" href="{% url 'home' %}" tabindex="1">Главная</a>
+          </li>
+          <li>
+            <a id="services" href="{% url 'services' %}" tabindex="2">{% trans "Услуги" %}</a>
+          </li>
+          <li>
+            <a id="contacts" href="{% url 'contacts' %}" tabindex="3">{% trans "Контакты" %}</a>
+          </li>
+          <li>
+            <a id="requests" href="{% url 'requests' %}" tabindex="4">{% trans "Мои заявки" %}</a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li>
+            {# URL provided by django-allauth/account/urls.py #}
+            <a id="account_logout" tabindex="5" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+          </li>
+          {% else %}
+          <li>
+            {# URL provided by django-allauth/account/urls.py #}
+            <a id="sign-up-link" tabindex="5"  href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+          </li>
+          <li>
+            {# URL provided by django-allauth/account/urls.py #}
+            <a id="log-in-link" tabindex="6"  href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="main">
+    <button id="button-switch" type="button" tabindex="7" onclick="location.href='{% url 'services' %}'"
+      class="button-switch">
+      Обычная версия
+    </button>
+    <div class="container">
+      <h2 id="heading-cards" aria-level="2">Услуги</h2>
+      <div class="services">
+        <div id="card-one" class="card" tabindex="8">
+          <h3 aria-level="3">Уборка квартир</h3>
+          <div class="card__image">
+            <img
+              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+             alt="Woman cleaning the window">
+          </div>
+          <p>Обученные клинеры. Сертифицированные средства. Гарантия качества. С нами будет чисто. Срочные выезды.
+            Расчет стоимости на сайте. Новым клиентам скидка 10%</p>
+        </div>
+        <div id="card-two" class="card" tabindex="9">
+          <h3 aria-level="3">Чистка ковров</h3>
+          <div class="card__image">
+            <img
+              src="https://images.unsplash.com/photo-1517837817850-607cd9ff1015?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+             alt="Woman cleaning the window">
+          </div>
+          <p>Качественная чистка ковров и паласов требует немало времени, усилий и знаний. Доверьте этот трудоемкий
+            процесс профессионалам с опытом и наслаждайтесь результатом.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <a id="contact-footer" href="#" tabindex="10">Контакты</a>
+        <a id="conditions" tabindex="11">Условия пользования</a>
+        <a id="download" href="#" tabindex="12">Скачайте приложение</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="{% static 'js/services_disable.js' %}"></script>
+</body>
+
+</html>
